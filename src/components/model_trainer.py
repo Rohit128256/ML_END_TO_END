@@ -8,6 +8,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
 from catboost import CatBoostRegressor
 from xgboost import XGBRegressor
+import yaml
 
 from src.exception import CustomException
 from src.logger import logging
@@ -35,7 +36,7 @@ class ModelTrainer:
             models = {
                 "Random Forest" : RandomForestRegressor(),
                 "Decision Tree" : DecisionTreeRegressor(),
-                "Gradient Boosting " : GradientBoostingRegressor(),
+                "Gradient Boosting" : GradientBoostingRegressor(),
                 "Linear Regression" : LinearRegression(),
                 "KNN Regressor" : KNeighborsRegressor(),
                 "XGB Regressor" : XGBRegressor(),
@@ -43,8 +44,10 @@ class ModelTrainer:
                 "Catboost Regressor" : CatBoostRegressor()
             }
 
-            
-            model_report : dict = evaluate_models(x_train = x_train,y_train = y_train,x_test = x_test,y_test = y_test,models = models) 
+            with open("hyperparameter.yaml","r") as file:
+                param = yaml.safe_load(file)
+
+            model_report : dict = evaluate_models(x_train = x_train,y_train = y_train,x_test = x_test,y_test = y_test,models = models,params=param) 
             
             best_model_score = max(sorted(model_report.values()))
 
