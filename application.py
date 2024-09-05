@@ -5,7 +5,9 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from src.pipelines.predict_pipeline import CustomData,PredictionPipeline
 
-app = Flask(__name__)
+application = Flask(__name__)
+
+app = application
 
 @app.route('/')
 def index():
@@ -35,4 +37,4 @@ def predict_datapoint(): #gets mapped with /predictdata endpoint - we can get it
     
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1",debug=True)
+    app.run(host="0.0.0.0")

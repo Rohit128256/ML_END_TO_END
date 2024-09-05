@@ -9,8 +9,6 @@ __pycache__/
 # Distribution / packaging
 .Python
 catboost_info/
-artifacts/
-artifact/
 build/
 develop-eggs/
 dist/
