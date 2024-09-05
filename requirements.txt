@@ -6,5 +6,5 @@ catboost
 xgboost
 scikit-learn
 pyyaml
-flask
+Flask
 # -e .
