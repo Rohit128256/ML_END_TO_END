@@ -5,7 +5,6 @@ dill
 catboost
 xgboost
 scikit-learn
-yaml
-pickle
+pyyaml
 flask
--e .
+# -e .
