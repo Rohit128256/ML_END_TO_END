@@ -4,4 +4,8 @@ seaborn
 dill
 catboost
 xgboost
-# -e .
+scikit-learn
+yaml
+pickle
+flask
+-e .
