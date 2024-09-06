@@ -1,4 +1,5 @@
 import sys
+import os
 import pandas as pd 
 from src.exception import CustomException
 from src.logger import logging
@@ -11,8 +12,8 @@ class PredictionPipeline:
 
     def predict(self,features):
         try:
-            model_path = 'artifact\model.pkl'
-            preprocessor_path = 'artifacts\preprocessor.pkl'
+            model_path = os.path.join("artifact","model.pkl") #'artifact\model.pkl'
+            preprocessor_path = os.path.join("artifacts","preprocessor.pkl") #'artifacts\preprocessor.pkl'
             model = load_object(file_path = model_path)
             preprocessor = load_object(file_path=preprocessor_path)
             data_scaled = preprocessor.transform(features)
